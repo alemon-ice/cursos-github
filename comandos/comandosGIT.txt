@@ -1,0 +1,117 @@
+CONFIGURAÇÕES INICIAIS DE USUÁRIO DO GIT
+
+git config --global user.name "Seu nome"
+
+git config --global user.email "Seu email"
+
+git config --global core.editor code
+
+git config --list
+
+COMANDOS
+
+//criar pasta pelo terminal
+mkdir nomeDaPasta
+
+//acessar pasta pelo diretório
+cd nomeDaPasta
+
+//abrir editor vim
+vim nomeDoArquivo
+	//habilitar o modo inserção: apertar tecla "i"
+	//sair do modo inserção: apertar tecla "esc"
+	//salvar e sair do editor vim: apertar tecla ":" + "w" +"q" e apertar enter
+
+COMANDOS PARA O CONTROLE DE VERSÃO
+
+//cria um repositório (.git) na pasta atual
+git init
+
+//mostra o status atual do seu repositório
+git status
+
+//mostra quais foram as linhas do arquivo que foram alteradas antes de realizar o commit
+git diff
+//mostra apenas o nome do arquivo que foi modificado antes de realizar o commit
+git diff --name-only
+
+GIT ADD
+//comando GIT ADD adiciona os arquivos da ÁRVORE DE TRABALHO para a STAGING ÁREA
+
+	//adiciona o arquivo selecionado da árvore de trabalho para o controle de versão
+	git add nomeDoArquivo.extensão
+
+	//adiciona os arquivos da árvore de trabalho que contém a extensão selecionada para o controle de versão
+	git add *.extensão
+
+	//adiciona TODOS os arquivos da árvore de trabalho para o controle de versão
+	git add .
+
+	//desfaz última alteração do arquivo e retira ele do UNMODIFIED retornando para o UNTRACKED
+	git reset HEAD nomeDoArquivo
+
+GIT COMMIT
+//comando GIT COMMIT transfere os arquivos da STAGING ÁREA para o REPOSITÓRIO do GitHub
+
+	//faz o commit com uma descrição
+	git commit -m "Mensagem de identificação do commit"
+
+	//pula a etapa do git add realizando o commit diretamente
+	git commit -a -m "Mensagem de identificação do commit"
+
+	//para criar arquivos dentro da pasta que você não quer que seja controlado pelo controle de versões basta nomear o arquivo com .gitignore
+
+	//
+	git log --decorate
+	//apresenta o histórico de commits realizados e seu autor (as chaves de cada commit servem para você referenciar o commit caso você deseje voltar à aquela versão do seu projeto
+	git log
+	//apresenta o histórico de commits do author informado
+	git log --author="nomeDoAutor"
+	//apresenta o histórico de commits separado por autores
+	git shortlog
+	//apresenta o histórico de commits separado por autores e a quantidade de commits
+	git shortlog -sn
+	//apresenta o histórico de commits mais os detalhes de cada commit
+	git log -p (para descer linha por linha apertar ENTER, para voltar ao terminal apertar Q)
+	//apresenta a quantidade de históricos de commits de acordo com o número informado
+	git log -p -número
+	//apresenta o histórico de commits realizados em forma gráfica
+	git log --graph
+
+	//apresenta a interface gráfica do Git para visualizar os históricos de commit
+	gitk
+
+	//apresenta todas as alterações feitas pelo commit da rash selecionada
+	git show 'rash'
+
+	//retorna o último commit para a área MODIFIED
+	git reset --soft 'rashAnterior'
+	//retorna o último commit para a área UNMODIFIED
+	git reset --mixed 'rashAnterior'
+	//deleta o último commit
+	git reset --hard 'rashAnterior'
+
+	//reverte as mudanças do commit mas mantém o commit no histórico para ser acessado
+	git revert <<id do commit>>
+
+	//guarda últimas alterações que você não deseja adicionar ao commit
+	git stash
+	//traz de volta a alteração guardada pelo git stash
+	git stash apply
+	//git stash list
+	lista todas as alterações guardadas
+	//git stash clear
+	limpa a lista de alterações guardadas
+
+	
+	//criar atalhos para comandos git
+	git config --global alias.<<atalho>> <<comando>>
+		exemplo: git config --global alias.s status
+			logo: o comando "git s" corresponderá a "git status"
+
+	//versionando com tags
+	git tag -a <<1.0.0(versão)>> -m "Primeira versão"
+	//apagar tag do repositório local
+	git tag -d <<1.0.0(versão)>>
+	//apagar tag do repositório remoto
+	git push <<origin(nome repositorio)>>: <<1.0.0(versão)>>

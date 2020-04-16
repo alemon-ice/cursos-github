@@ -1,0 +1,49 @@
+SOBRE BRANCH
+
+	Branch: é um ponteiro móvel que leva a um commit
+
+	Quando se cria um repositório, o primeiro branch é o Branch Master, onde fica o commit principal do projeto
+
+	Pode-se criar branches direcionados a outros commits do projeto
+	
+Vantagens de utilizar brantches:
+	- Pode modificar sem alterar o local principal (master)
+	- Facilmente "desligável"
+	- Múltiplas pessoas trabalhando: pessoas podem trabalhar em diferentes branches
+	- Evita conflitos: pelo fato de várias pessoas trabalharem em determinadas branches, o commit de uma pesoa não interfere no trabalho de outra
+
+
+Comandos Branch
+
+	//cria um branch chamado testing (pode ser qualquer nome)
+	git checkout -b testing
+
+	//mostra as branches existentes e destaca em qual você está no momento
+	git branch
+
+	//muda para a branch informada (no exemplo a branch se chama 'testing')
+	git checkout testing
+
+	//deleta a branch informada (no exemplo a branch deletada se chama 'testing')
+	git branch -D testing
+
+União de branches
+	
+	Merge
+		O merge cria um commit novo juntando os commits das branches selecionadas para a junção
+		-Pró: não compromete seus commits
+		-Contra: commit extra com histórico poluído
+		
+		
+		utilizando o Merge
+			//irá mesclar a branch selecionada
+			git merge <<branch>>
+			
+	Rebase
+		Transfere um commit ramificado para o final da fica tornando o histórico de commits linear
+		-Pró: evita commit extra sem poluição do histórico mantendo o histórico linear
+		-Contra: perde a ordem cronológica do histórico podendo causar conflito de commits em branches
+		
+		Utilizando o Rebase
+			//aplica a modifição para o topo da lista
+			git rebase <<branch>>

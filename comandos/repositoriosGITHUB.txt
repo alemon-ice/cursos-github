@@ -1,0 +1,36 @@
+Criar repositório no GitHub
+	- nome
+	- descrição
+	- public
+	- git
+
+Ligando repositórios locais com repositórios remotos
+	//comando para ligar o repositorio local com o repositório remoto informado
+	git remote add <<origin(esse é o nome do repositório a ser criado, pode ser qualquer nome)>> git@github.com:<<nome de usuário>>/<<nome do diretório>>.git
+	exemplo: git remote add origin git@github.com:alemon-ice/cursos-github.git
+
+	//mostra o repositório criado com o comando acima
+	git remote
+	//mostra o repositório criado e o endereço em que foi criado
+	git remote -v
+
+	//faz o envio dos arquivos da Branch master para o repositório (no caso é o Origin)
+	git push -u origin master
+
+Caso fizer mais alterações no projeto executar novamente o comando acima sem o "-u"
+	git push origin master
+					----//----
+
+Clonando repositório remoto
+
+- Copiar endereço do repositório: http ou ssh (recomendado ssh)
+	//comando para fazer clonagem do repositório remoto copiado
+	git clone <<endereço copiado do repositório>> <<nome do clone>>
+	exemplo git clone git@github.com/alemon-ice/cursos-git.git cursos-git-clone
+
+					----//----
+
+Fork de um projeto
+
+- Clicar no botão Fork do projeto
+- selecionar o repositório que será encaminhado o fork
